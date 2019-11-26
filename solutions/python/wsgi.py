@@ -42,6 +42,9 @@ def incidentPut(incident, incidentID):
     else:
         return ("Could not delete. ID not found", 201)
         
+@application.route("/actuator/health")
+def alive():
+        return("OK", 200)
 
 @application.route("/")
 def hello():
