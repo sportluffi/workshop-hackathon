@@ -8,6 +8,8 @@ SCRIPTPATH=$(dirname "$SCRIPT")
 # Get the APP_HOME
 APP_HOME=$(readlink -f "${APP_HOME:-.}")
 
-python ${APP_HOME}/kafka-listen.py &
+# kafka-listen assumes relative paths for its modules.
+cd ${APP_HOME}
+python kafka-listen.py &
 
 exec /usr/libexec/s2i/run "$@"
