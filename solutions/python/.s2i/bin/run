@@ -5,6 +5,9 @@ SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/bin
 SCRIPTPATH=$(dirname "$SCRIPT")
 
-sleep 10 &
+# Get the APP_HOME
+APP_HOME=$(readlink -f "${APP_HOME:-.}")
+
+python ${APP_HOME}/kafka-listen.py &
 
 exec /usr/libexec/s2i/run "$@"
