@@ -10,4 +10,4 @@ kafka_server = os.environ.get('KAFKA_SERVER', 'kafka-cluster-kafka-bootstrap.eme
 topic_incident_event = os.environ.get('TOPIC_INCIDENT_EVENT', 'topic-incident-event')
 topic_incident_command = os.environ.get('TOPIC_INCIDENT_COMMAND', 'topic-incident-command')
 
-rest_endpoint_for_update = '/incident/incidents/'
+rest_endpoint_for_update = 'localhost:8080/incident/incidents/'
