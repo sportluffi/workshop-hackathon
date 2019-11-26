@@ -10,7 +10,8 @@ def main(kafka_server, kafka_topic, rest_endpoint):
     consumer.subscribe([kafka_topic])
     for msg in consumer:
         print (msg)
-        body = msg.value()[body]
+        msg = msg.value()
+        body = msg[body]
         requests.put(rest_endpoint+'/'+msg[id], json=body)
 
 if __name__ == '__main__':
