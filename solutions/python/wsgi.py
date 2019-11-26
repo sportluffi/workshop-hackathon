@@ -16,13 +16,13 @@ def addIncident(incident):
     incidents.update(incidentDictionary)
 
 def getIncidents():
-    return incidents
+    return incidents, 200
 
 def incidentInfo(incident):
     if incident in incidents:
         return incidents.get(incident)
     else: 
-        return "ID not found"
+        return "ID not found", 500
 
 def incidentDelete(incident):
     if incident in incidents:
@@ -53,7 +53,7 @@ def incident():
         return getIncidents()
     elif request.method == "POST":
         addIncident(request.json)
-        return("OK")
+        return("OK", 201)
 
 @application.route('/incidents/incident/<incidentId>', methods=['GET', 'PUT', 'DELETE'])
 def specificIncident(incidentId):
